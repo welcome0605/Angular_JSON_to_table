@@ -1,9 +1,28 @@
 <!-- <h1>Here</h1> -->
 <div class="row">
-    <div class="col-md-12" style="text-align: center;">
-        <input type="button" class="btn btn-success" value="Upload">
+    <div class="col-md-12" style="text-align: center;margin-top: 5%;">
+        <input type="button" class="btn btn-success" value="Upload" (click)="myClickFunction($event)">
     </div>
-    <div class="col-md-12" style="text-align: center;">
-        <table></table>
+    <div class="col-md-12" style="text-align: center;margin-top: 5%;">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col" style="text-align: center;">#</th>
+                    <th scope="col" style="text-align: center;">{{res1}}</th>
+                    <th scope="col" style="text-align: center;">{{res2}}</th>
+                    <th scope="col" style="text-align: center;">{{res3}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let country of countries; index as i">
+                    <th scope="row"  style="text-align: center;">{{ i + 1 }}</th>
+                    <td>
+                    {{ country.name }}
+                    </td>
+                    <td>{{ country.area | number }}</td>
+                    <td>{{ country.population | number }}</td>
+                </tr>
+            </tbody>
+         </table>
     </div>
 </div>
